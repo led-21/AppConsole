@@ -1,6 +1,6 @@
 # AppConsole-01
 
-Esse aplicativo pega uma imagem qualquer e converte os pixels em caracteres e a exibe em um console.
+Esse aplicativo pega uma imagem qualquer e converte os pixels em caracteres e os exibe em um console.
 
 # Resultado
 
