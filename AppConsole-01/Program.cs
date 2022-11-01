@@ -6,7 +6,7 @@ int pixelsWidth = 300;
 
 Image img = Bitmap.FromFile(path);
 
-int pixelsHeigth = (int)(img.Height / (float)img.Width * pixelsWidth);
+int pixelsHeigth = (int)(img.Height / img.Width * pixelsWidth);
 
 Bitmap imagem = new Bitmap(img, pixelsWidth, pixelsHeigth);
 
