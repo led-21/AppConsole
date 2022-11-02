@@ -1,32 +1,26 @@
-﻿using System.Diagnostics;
 using System.Drawing;
 
 string path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../Imagem/ponei.jpeg"));
 
-int pixelsWidth = 150;
-
-string mPath = "C:\\Users\\adria\\Source\\Repos\\led-21\\AppConsole-01\\AppConsole-01\\Imagem\\ponei.jpeg";
+int pixelsWidth = 300;
 
 Image img = Bitmap.FromFile(path);
 
-int pixelsHeigth = (int)(img.Height / (float)img.Width * pixelsWidth);
+int pixelsHeigth = (int)(img.Height / img.Width * pixelsWidth);
 
 Bitmap imagem = new Bitmap(img, pixelsWidth, pixelsHeigth);
 
-char[] charArr = { '.', ',', ',', ';', ';', '-', 'L', 'U', 'H', '#', '@' };
+char[] charArr = { '1', '.', '.', ',', ';', '-', 'L', 'U', 'H', '0', '#', '@' };
 
 
-for (int col = 0; col < imagem.Height; col++)
+for (int i = 0; i < imagem.Height; i++)
 {
-    for (int line = 0; line < imagem.Width; line++)
+    for (int j = 0; j < imagem.Width; j++)
     {
-        Color c = imagem.GetPixel(line, col);
+        Color c = imagem.GetPixel(j, i);
         byte grayScale = (byte)((c.R * 0.3) + (c.G * 0.59) + (c.B * 0.11));
 
-        char caractere = charArr[(grayScale / 25) % 11];
-
-        Console.Write(caractere + " ");
-
+        Console.Write(charArr[(grayScale / 25) % 10] + " ");
     }
     Console.WriteLine();
 }
