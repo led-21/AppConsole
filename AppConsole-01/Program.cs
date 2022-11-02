@@ -9,7 +9,7 @@ string mPath = "C:\\Users\\adria\\Source\\Repos\\led-21\\AppConsole-01\\AppConso
 
 Image img = Bitmap.FromFile(path);
 
-int pixelsHeigth = (int)(img.Height / img.Width * pixelsWidth);
+int pixelsHeigth = (int)(img.Height / (float)img.Width * pixelsWidth);
 
 Bitmap imagem = new Bitmap(img, pixelsWidth, pixelsHeigth);
 
