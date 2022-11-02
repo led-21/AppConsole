@@ -25,9 +25,9 @@ for (int col = 0; col < imagem.Height; col++)
 
         char caractere = charArr[(grayScale / 25) % 10];
 
-        Colorir(caractere);
+      //  Colorir(caractere);
         Console.Write(caractere + " ");
-        Descolorir();
+     //   Descolorir();
     }
     Console.WriteLine();
 }
@@ -42,8 +42,6 @@ void Colorir(char c)
         Console.ForegroundColor = ConsoleColor.Red;
     if (c == '-' || c == ',')
         Console.ForegroundColor = ConsoleColor.Yellow;
-    if (c == '.')
-        Console.ForegroundColor = ConsoleColor.Black;
 }
 
 void Descolorir()
