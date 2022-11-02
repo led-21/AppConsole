@@ -1,33 +1,67 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics;
+using System.Drawing;
 
 string path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../Imagem/ponei.jpeg"));
 
-int pixelsWidth = 300;
 
-Image img = Bitmap.FromFile(path);
+int pixelsWidth = 200;
 
-int pixelsHeigth = (int)(img.Height / img.Width * pixelsWidth);
+string mPath = "C:\\Users\\adria\\Source\\Repos\\led-21\\AppConsole-01\\AppConsole-01\\Imagem\\ponei.jpeg";
 
-Bitmap imagem = new Bitmap(img, pixelsWidth, pixelsHeigth);
-
-char[] charArr = { '1','.', '.', ',', ';', '-', 'L', 'U', 'H', '0', '#', '@' };
+Desenhar(path);
 
 
-for(int i = 0; i< imagem.Height; i++)
+void Desenhar(string path)
 {
-    for(int j = 0; j< imagem.Width; j++)
-    {
-        Color c = imagem.GetPixel(j, i);
-        byte grayScale = (byte)((c.R * 0.3) + (c.G * 0.59) + (c.B * 0.11));
 
-        Console.Write(charArr[(grayScale/25)%10]+" ");
+    Image img = Bitmap.FromFile(path);
+
+    int pixelsHeigth = (int)(img.Height / img.Width * pixelsWidth);
+
+    Bitmap imagem = new Bitmap(img, pixelsWidth, pixelsHeigth);
+
+    char[] charArr = { '.', ',', '-', ';', ';', '\'', 'L', 'U', 'H', '0', ' ', '@' };
+
+
+    for (int col = 0; col < imagem.Height; col++)
+    {
+        for (int line = 0; line < imagem.Width; line++)
+        {
+            Color c = imagem.GetPixel(line, col);
+            byte grayScale = (byte)((c.R * 0.3) + (c.G * 0.59) + (c.B * 0.11));
+
+            char caractere = charArr[(grayScale / 25) % 11];
+
+            Colorir(caractere);
+            Console.Write(caractere + " ");
+            Descolorir();
+        }
+
+
+        Console.WriteLine();
     }
-    Console.WriteLine();
 }
 
 
+void Colorir(char c)
+{
+    if(c == 'H' || c == 'U')
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        
+    if (c == 'L' || c == 'O' || c == '0')
+        Console.ForegroundColor = ConsoleColor.Red;
+    if (c == '-' || c == ',' )
+        Console.ForegroundColor = ConsoleColor.Yellow;
+    if (c == '.')
+        Console.ForegroundColor = ConsoleColor.Black;
+    
 
+}
 
+void Descolorir()
+{
+    Console.ForegroundColor = ConsoleColor.White;
+}
 
 
 
