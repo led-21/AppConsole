@@ -1,6 +1,6 @@
 # AppConsole
 
-This application takes any image and converts the pixels into characters and displays them on a console.
+This application processes any image by converting its pixels into characters and then displays them on a console.
 
 ## Result
 
